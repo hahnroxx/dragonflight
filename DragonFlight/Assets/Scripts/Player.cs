@@ -19,4 +19,16 @@ public class Player : MonoBehaviour
         //위에서 만든 벡터 값을 트랜스폼에 넣어서 이동 설정함
         transform.Translate(distanceX, 0, 0);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);  //적 삭제
+
+            Destroy(gameObject);            //플레이어 삭제
+        }
+    }
+
+    
 }
